@@ -1,0 +1,78 @@
+name: "♻️ Refactor"
+description: "리팩토링 작업을 위한 템플릿입니다. Refactoring template"
+title: "[Refactor] "
+labels: ["Refactor"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: "🎯 개선 분류 Category"
+      options:
+        - Architecture (전체적인 설계 구조 개선)
+        - Code Quality (코드 품질 및 가독성 개선)
+        - Both (구조 개선과 코드 개선 모두)
+    validations:
+      required: true
+
+  - type: textarea
+    id: file-paths
+    attributes:
+      label: "📂 파일 위치 Paths"
+      placeholder: |
+        Source/Features/Login/
+        ├── LoginViewController.swift
+        ├── LoginViewModel.swift
+        └── LoginService.swift
+        
+        Source/Core/Network/
+        └── AuthManager.swift
+      description: "리팩토링이 필요한 파일들의 경로를 입력해주세요.\nPlease enter the paths to the files that need refactoring."
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 개선 내용 Improvement Description"
+      placeholder: |
+        예시 Ex:
+        - 현재 문제점: LoginViewController에서 비즈니스 로직과 UI 로직이 섞여 있습니다.
+          Current issues: Business logic and UI logic are mixed in LoginViewController.
+        
+        - 개선이 필요한 이유: 단일 책임 원칙을 위반하고 있어 테스트와 유지보수가 어렵습니다.
+          Reasons for improvement: Violates Single Responsibility Principle, making testing and maintenance difficult.
+        
+        - 영향 범위: 로그인 관련 로직 전반에 영향이 있을 수 있습니다.
+          Impact scope: May affect overall login-related logic.
+      description: "어떤 부분을 개선하고 싶은지, 왜 개선이 필요한지 설명해주세요.\nPlease explain what needs to be improved and why improvement is necessary."
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: "🛠️ 구현 방안 Implementation Plan"
+      placeholder: |
+        예시 Ex:
+        - 개선 방식: MVVM 패턴을 적용하여 비즈니스 로직을 ViewModel로 분리합니다.
+          Improvement method: Apply MVVM pattern to separate business logic into ViewModel.
+        
+        - 주요 변경사항: LoginViewModel 생성, 프로토콜 정의, 바인딩 로직 구현
+          Major changes: Create LoginViewModel, define protocols, implement binding logic
+        
+        - 고려사항: RxSwift/Combine 사용 여부, 기존 기능 영향도 체크
+          Considerations: Whether to use RxSwift/Combine, check impact on existing features
+      description: "어떻게 개선할 것인지 구체적인 방안을 설명해주세요.\nPlease explain how you plan to improve it with specific approaches."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "ℹ️ 추가 정보 Additional information"
+      placeholder: |
+        예시 Ex:
+        - 관련 이슈: #42, #123 Related issues: #42, #123
+        - 참고 문서 Reference Documents
+        - 기타 고려사항 Other Considerations
+      description: "리팩토링 시 참고할 만한 추가 정보(관련 이슈, 문서 등)가 있다면 작성해주세요.\nPlease provide any additional information that may help with the refactoring (related issues, documentation, etc)."

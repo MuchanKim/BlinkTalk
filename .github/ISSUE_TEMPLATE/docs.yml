@@ -1,0 +1,63 @@
+name: "📝 Documentation"
+description: "문서 작업을 위한 템플릿입니다. Template for documentation work"
+title: "[Docs] "
+labels: ["Docs"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: "🎯 문서 분류 Category"
+      options:
+        - README (리드미 작성/수정)
+        - Guide (가이드/튜토리얼 문서)
+        - API (API 문서/프로토콜 명세)
+        - Wiki (위키 문서 작성/수정)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 작업 내용 Task Description"
+      placeholder: |
+        예시 Ex:
+        - 현재 상황: 로그인 모듈에 대한 문서화가 부족합니다.
+          Current situation: Lack of documentation for the login module.
+        
+        - 작업 필요성: 새로운 팀원의 온보딩과 유지보수를 위해 문서화가 필요합니다.
+          Necessity: Documentation needed for new team member onboarding and maintenance.
+        
+        - 작업 범위: 로그인 플로우, API 명세, 에러 처리 방식 등을 문서화
+          Scope: Document login flow, API specifications, error handling methods, etc.
+      description: "어떤 문서 작업이 필요한지, 왜 필요한지 설명해주세요.\nPlease explain what documentation work is needed and why it is necessary."
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: "🛠️ 구현 방안 Implementation Plan"
+      placeholder: |
+        예시 Ex:
+        - 작업 방식: 마크다운 형식으로 API 문서 작성
+          Implementation method: Write API documentation in markdown format
+        
+        - 주요 내용: 인증 프로세스 플로우, API 엔드포인트 설명, 에러 코드 정의
+          Main contents: Authentication process flow, API endpoint descriptions, error code definitions
+        
+        - 참고할 점: 기존 문서 형식 준수, 영문 병기 필요
+          Points to consider: Follow existing documentation format, need bilingual writing
+      description: "어떻게 문서를 작성/수정할 것인지 구체적인 방안을 설명해주세요.\nPlease explain how you plan to write/modify the documentation with specific approaches."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "ℹ️ 추가 정보 Additional information"
+      placeholder: |
+        예시 Ex:
+        - 관련 이슈: #42, #123 Related issues: #42, #123
+        - 참고 문서 Reference Documents
+        - 기타 고려사항 Other Considerations
+      description: "문서 작업 시 참고할 만한 추가 정보(관련 이슈, 문서 등)가 있다면 작성해주세요.\nPlease provide any additional information that may help with the documentation (related issues, reference docs, etc)."

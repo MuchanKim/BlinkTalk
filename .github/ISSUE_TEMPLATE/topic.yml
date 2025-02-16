@@ -1,0 +1,72 @@
+name: "💭 Topic"
+description: "질문이나 토론이 필요한 사항을 위한 템플릿입니다. Template for questions and discussions"
+title: "[Topic] "
+labels: ["Topic"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: "🎯 주제 분류 Category"
+      options:
+        - Architecture (아키텍처/설계 관련)
+        - Technical (기술/구현 관련)
+        - Convention (코드 컨벤션/스타일 관련)
+        - Direction (방향성/의사결정 관련)
+        - Else (기타)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 논의 사항 Discussion Points"
+      placeholder: |
+        예시 Ex:
+        - 주제: RxSwift vs Combine 선택
+          Topic: RxSwift vs Combine selection
+        
+        - 현재 상황: 새로운 기능 개발 시 반응형 프로그래밍 도입이 필요합니다.
+          Current situation: Need to introduce reactive programming for new feature development.
+        
+        - 고려사항: 학습 곡선, 유지보수성, iOS 버전 지원 범위 등
+          Considerations: Learning curve, maintainability, iOS version support range, etc.
+
+        - 그 밖: 지식 공유, 팀 롤 조정 등.
+          Knowledge sharing, team role coordination, etc.
+      description: "논의하고 싶은 내용과 관련 배경을 설명해주세요.\nPlease explain the discussion points and related background."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "💡 대안 검토 Alternative Analysis"
+      placeholder: |
+        예시 Ex:
+        - 방안 1: RxSwift 도입
+          Option 1: Adopt RxSwift
+          • 장점: 풍부한 레퍼런스, 커뮤니티 활성화
+            Pros: Rich references, active community
+          • 단점: 외부 의존성 추가, 앱 크기 증가
+            Cons: Additional dependency, increased app size
+        
+        - 방안 2: Combine 사용
+          Option 2: Use Combine
+          • 장점: 애플 기본 프레임워크, 추가 의존성 없음
+            Pros: Apple's native framework, no additional dependencies
+          • 단점: iOS 13+ 지원, 레퍼런스 상대적 부족
+            Cons: iOS 13+ support only, relatively fewer references
+      description: "고려할 수 있는 대안들과 각각의 장단점을 설명해주세요.\nPlease explain possible alternatives and their pros/cons."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "ℹ️ 추가 정보 Additional information"
+      placeholder: |
+        예시 Ex:
+        - 관련 이슈: #42, #123 Related issues: #42, #123
+        - 참고 자료 Reference Materials
+        - 기타 고려사항 Other Considerations
+      description: "논의에 도움이 될 만한 추가 정보(관련 이슈, 문서 등)가 있다면 작성해주세요.\nPlease provide any additional information that may help with the discussion (related issues, documentation, etc)."

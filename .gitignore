@@ -1,0 +1,82 @@
+#------------------
+# Xcode
+#------------------
+
+# 사용자별 Xcode 설정 파일
+xcuserdata/
+!*.xcodeproj/xcshareddata/
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# Xcode 8 이전 버전 호환성 파일
+*.xcscmblueprint
+*.xccheckout
+*.xcconfig
+
+# Xcode 3 이전 버전 호환성 파일
+build/              # 빌드 결과물
+DerivedData/        # 임시 빌드 파일
+*.moved-aside       # 이동된 파일
+*.pbxuser           # 사용자 설정
+!default.pbxuser
+*.mode1v3           # Xcode 3 워크스페이스 설정
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+#------------------
+# 빌드 결과물
+#------------------
+*.hmap              # 헤더 맵 파일
+*.ipa              # iOS 앱 패키지
+*.dSYM.zip         # 디버그 심볼
+*.dSYM
+
+#------------------
+# Playground
+#------------------
+timeline.xctimeline
+playground.xcworkspace
+
+#------------------
+# Swift Package Manager
+#------------------
+.build/
+# Packages/        # SPM 패키지 (필요시 주석 해제)
+# Package.pins
+# Package.resolved
+# .swiftpm
+
+#------------------
+# CocoaPods
+#------------------
+# Pods/           # 필요시 주석 해제
+# *.xcworkspace   # 워크스페이스 제외시 주석 해제
+
+#------------------
+# Carthage
+#------------------
+Carthage/Build/    # 빌드된 프레임워크
+
+#------------------
+# 기타 의존성 관리
+#------------------
+Dependencies/      # Accio 의존성
+.accio/
+
+#------------------
+# fastlane
+#------------------
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+#------------------
+# 기타
+#------------------
+iOSInjectionProject/    # 코드 인젝션 도구
+.DS_Store               # macOS 시스템 파일
+*.xcuserstate          # Xcode 상태 파일
+**/Preview Content     # SwiftUI 프리뷰 콘텐츠

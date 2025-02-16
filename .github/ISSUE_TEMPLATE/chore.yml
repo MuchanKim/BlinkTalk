@@ -1,0 +1,79 @@
+name: "🔧 Chore"
+description: "설정 및 기타 잡일을 위한 템플릿입니다. Templates for setup and other chores."
+title: "[Chore] "
+labels: ["Chore"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: "🎯 작업 분류 Category"
+      options:
+        - Dependencies (라이브러리 추가/업데이트)
+        - Build (빌드 설정 및 스크립트 관리)
+        - Project (프로젝트 설정 및 환경 구성)
+        - Else (기타 잡일)
+    validations:
+      required: true
+
+  - type: textarea
+    id: file-paths
+    attributes:
+      label: "📂 파일 위치 Paths"
+      placeholder: |
+        Project/
+        ├── Podfile
+        ├── Package.swift
+        └── project.pbxproj
+        
+        Scripts/
+        └── build_phase.sh
+      description: "변경이 필요한 파일들의 경로를 입력해주세요.\nPlease enter the paths to the files that need to be modified."
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 작업 내용 Task Description"
+      placeholder: |
+        예시 Ex:
+        - 현재 상황: RxSwift 버전이 6.5.0으로 되어있어 업데이트가 필요합니다.
+          Current situation: RxSwift version is 6.5.0 and needs to be updated.
+        
+        - 작업 필요성: 최신 버전에서 수정된 메모리 릭 이슈 해결이 필요합니다.
+          Necessity: Need to resolve memory leak issues fixed in the latest version.
+        
+        - 영향 범위: RxSwift를 사용하는 모든 뷰모델에 영향이 있을 수 있습니다.
+          Impact scope: May affect all ViewModels using RxSwift.
+      description: "어떤 작업이 필요한지, 왜 필요한지 설명해주세요.\nPlease explain what needs to be done and why it is necessary."
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: "🛠️ 구현 방안 Implementation Plan"
+      placeholder: |
+        예시 Ex:
+        - 작업 방식: Podfile의 RxSwift 버전을 6.6.0으로 업데이트
+          Implementation method: Update RxSwift version to 6.6.0 in Podfile
+        
+        - 주요 변경사항: 버전 업데이트, 관련 디펜던시 호환성 체크
+          Major changes: Version update, check related dependency compatibility
+        
+        - 고려사항: 기존 코드 호환성 검증 필요, 빌드 이슈 가능성 체크
+          Considerations: Need to verify existing code compatibility, check for potential build issues
+      description: "어떻게 작업을 진행할 것인지 구체적인 방안을 설명해주세요.\nPlease explain how you plan to proceed with specific approaches."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "ℹ️ 추가 정보 Additional information"
+      placeholder: |
+        예시 Ex:
+        - 관련 이슈: #42, #123 Related issues: #42, #123
+        - 참고 문서 Reference Documents
+        - 기타 고려사항 Other Considerations
+      description: "작업 시 참고할 만한 추가 정보(관련 이슈, 문서 등)가 있다면 작성해주세요.\nPlease provide any additional information that may help with the task (related issues, documentation, etc)."

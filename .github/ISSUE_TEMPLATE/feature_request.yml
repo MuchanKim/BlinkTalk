@@ -1,0 +1,53 @@
+name: "💡 Feature Request"
+description: "새로운 기능 제안 관련 이슈시 사용하는 템플릿입니다. Feature request template"
+title: "[Feature] "
+labels: ["Feature"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: "🎯 기능 분류 Category"
+      options:
+        - New Feature (새로운 기능)
+        - Enhancement (기존 기능 개선)
+        - UI/UX (디자인/사용성)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 기능 설명 Feature Description"
+      placeholder: |
+        예시 Ex:
+        - 어떤 기능인가요? What is this feature?
+        - 왜 필요한가요? Why is it needed?
+        - 어떤 문제를 해결하나요? What problem does it solve?
+      description: "제안하는 기능에 대해 자세히 설명해주세요.\nPlease describe the proposed feature in detail."
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: "🛠️ 구현 방안 Implementation Plan"
+      placeholder: |
+        예시 Ex:
+        - 구현 방법 How to implement
+        - 필요한 리소스 Required resources
+        - 예상 소요 시간 Estimated time
+      description: "기능 구현을 위한 계획을 설명해주세요.\nPlease explain your plan for implementing this feature."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "ℹ️ 참고 자료 및 추가 정보 References & Additional Information"
+      placeholder: |
+        예시 Ex:
+        - 관련 이슈: #42, #123 Related issues: #42, #123
+        - 디자인 시안/피그마 링크 Design/Figma link
+        - 유사 사례/참고 문서 Similar Cases/References
+        - 기타 고려사항 Other Considerations
+      description: "기능 구현에 참고할 만한 자료나 추가 정보가 있다면 작성해주세요.\nPlease provide any references or additional information that may help with the implementation (related issues, design specs, documentation, etc)."

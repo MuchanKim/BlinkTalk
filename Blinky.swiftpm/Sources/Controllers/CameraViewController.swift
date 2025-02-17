@@ -4,16 +4,31 @@ import SwiftUI
 class CameraViewController: NSObject, ObservableObject {
     let captureSession = AVCaptureSession()
     
+    private let blinkDetector = BlinkDetectionController()
+    
     override init() {
         super.init()
         
         guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front),
               let input = try? AVCaptureDeviceInput(device: device) else { return }
         
+        // 비디오 출력 설정 추가
+        let videoOutput = AVCaptureVideoDataOutput()
+        videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
+        
+        captureSession.beginConfiguration()
+        
         if captureSession.canAddInput(input) {
             captureSession.addInput(input)
-            captureSession.startRunning()
         }
+        
+        // 비디오 출력 추가
+        if captureSession.canAddOutput(videoOutput) {
+            captureSession.addOutput(videoOutput)
+        }
+        
+        captureSession.commitConfiguration()
+        captureSession.startRunning()
     }
     
     func getPreviewLayer() -> AVCaptureVideoPreviewLayer {
@@ -26,6 +41,7 @@ class CameraViewController: NSObject, ObservableObject {
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        // 여기서 Vision 프레임워크를 사용하여 눈 깜빡임을 감지할 예정
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        blinkDetector.detectBlink(in: pixelBuffer)
     }
 }
